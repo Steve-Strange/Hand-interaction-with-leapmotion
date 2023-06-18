@@ -6,3 +6,8 @@ Library
 Logs
 Packages
 UserSettings
+*.json
+Temp
+obj
+*.asset
+*.sln
