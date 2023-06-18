@@ -1,0 +1,8 @@
+*.csproj
+.plastic
+.vsconfig
+Hand_interact.sln
+Library
+Logs
+Packages
+UserSettings
