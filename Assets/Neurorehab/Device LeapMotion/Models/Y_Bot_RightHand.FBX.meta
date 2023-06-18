@@ -1,0 +1,130 @@
+fileFormatVersion: 2
+guid: fb56c50c1a33b07428e2288edeb31fd3
+timeCreated: 1498468458
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: mixamorig:RightForeArm
+    100002: mixamorig:RightHand
+    100004: mixamorig:RightHandIndex1
+    100006: mixamorig:RightHandIndex2
+    100008: mixamorig:RightHandIndex3
+    100010: mixamorig:RightHandIndex4
+    100012: mixamorig:RightHandMiddle1
+    100014: mixamorig:RightHandMiddle2
+    100016: mixamorig:RightHandMiddle3
+    100018: mixamorig:RightHandMiddle4
+    100020: mixamorig:RightHandPinky1
+    100022: mixamorig:RightHandPinky2
+    100024: mixamorig:RightHandPinky3
+    100026: mixamorig:RightHandPinky4
+    100028: mixamorig:RightHandRing1
+    100030: mixamorig:RightHandRing2
+    100032: mixamorig:RightHandRing3
+    100034: mixamorig:RightHandRing4
+    100036: mixamorig:RightHandThumb1
+    100038: mixamorig:RightHandThumb2
+    100040: mixamorig:RightHandThumb3
+    100042: mixamorig:RightHandThumb4
+    100044: rightHand
+    100046: rightHandMesh
+    100048: //RootNode
+    400000: mixamorig:RightForeArm
+    400002: mixamorig:RightHand
+    400004: mixamorig:RightHandIndex1
+    400006: mixamorig:RightHandIndex2
+    400008: mixamorig:RightHandIndex3
+    400010: mixamorig:RightHandIndex4
+    400012: mixamorig:RightHandMiddle1
+    400014: mixamorig:RightHandMiddle2
+    400016: mixamorig:RightHandMiddle3
+    400018: mixamorig:RightHandMiddle4
+    400020: mixamorig:RightHandPinky1
+    400022: mixamorig:RightHandPinky2
+    400024: mixamorig:RightHandPinky3
+    400026: mixamorig:RightHandPinky4
+    400028: mixamorig:RightHandRing1
+    400030: mixamorig:RightHandRing2
+    400032: mixamorig:RightHandRing3
+    400034: mixamorig:RightHandRing4
+    400036: mixamorig:RightHandThumb1
+    400038: mixamorig:RightHandThumb2
+    400040: mixamorig:RightHandThumb3
+    400042: mixamorig:RightHandThumb4
+    400044: rightHand
+    400046: rightHandMesh
+    400048: //RootNode
+    4300000: rightHand
+    4300002: rightHandMesh
+    9500000: //RootNode
+    13700000: rightHand
+    13700002: rightHandMesh
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
