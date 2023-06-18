@@ -11,3 +11,4 @@ Temp
 obj
 *.asset
 *.sln
+.vs
