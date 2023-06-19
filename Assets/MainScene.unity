@@ -7040,6 +7040,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
+      propertyPath: leapProvider
+      value: 
+      objectReference: {fileID: 1659208012}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
       propertyPath: poseToDetect
       value: 
       objectReference: {fileID: 11400000, guid: a89cae7d6e0cc4e4f896474ce80f2cc4,
@@ -7096,6 +7101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
       propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -7116,6 +7126,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1771396210}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
       propertyPath: poseRules.Array.data[0].directions.Array.data[0].axisToFace
       value: 1
       objectReference: {fileID: 0}
@@ -7131,9 +7151,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
       propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1771396210}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OffPos
+      objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
       propertyPath: WhilePoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -7186,6 +7216,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: leftPalmHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
       propertyPath: OnPoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: leftPalmHandler, Assembly-CSharp
       objectReference: {fileID: 0}
@@ -7193,6 +7228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: WhilePoseDetected.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: leftPalmHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
+        type: 3}
+      propertyPath: OnPoseLost.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5571620627189813233, guid: 5a2b7cdd5b910414d94d31dd271b3a1e,
         type: 3}
@@ -7503,9 +7543,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.50222397
-  m_Height: 0.3
+  m_Height: 0.98040044
   m_Direction: 1
-  m_Center: {x: 0.09415541, y: 0.9, z: -0.022449493}
+  m_Center: {x: 0.09415541, y: 0.5598002, z: -0.022449497}
 --- !u!23 &1181791332
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7673,6 +7713,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384737, guid: 6bacecc4f3df9584198879c73a6b6c36,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4459864850019384738, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
