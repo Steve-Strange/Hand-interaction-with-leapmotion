@@ -219,7 +219,7 @@ public class FirstPersonController : MonoBehaviour
 
             yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
 
-            float rotationY = (rightHand2human.y < -0.28 && leftHand2human.y < -0.28) ? 0.2f : (rightHand2human.y > 0.23 && leftHand2human.y > 0.23) ? -0.2f : 0;
+            float rotationY = (rightHand2human.y < -0.30 && leftHand2human.y < -0.30) ? 0.2f : (rightHand2human.y > 0.20 && leftHand2human.y > 0.20) ? -0.2f : 0;
 
             pitch += mouseSensitivity * rotationY;
 
@@ -397,7 +397,7 @@ public class FirstPersonController : MonoBehaviour
             leftHand2human = m.MultiplyVector(leftHand2human);
             rightHand2human = m.MultiplyVector(rightHand2human);
 
-            targetVelocity.x = (leftHand2human.x < -0.38 && rightHand2human.x > -0.2 && rightHand2human.x < 0.38) ? -1 : (leftHand2human.x > -0.38 && leftHand2human.x < 0.2 && rightHand2human.x > 0.38) ? 1 : 0;
+            targetVelocity.x = (leftHand2human.x < -0.41 && rightHand2human.x > -0.2 && rightHand2human.x < 0.41) ? -1 : (leftHand2human.x > -0.41 && leftHand2human.x < 0.2 && rightHand2human.x > 0.41) ? 1 : 0;
             targetVelocity.z = (leftHand2human.z < 0.35 && rightHand2human.z < 0.35) ? -1 : (leftHand2human.z > 0.7 && rightHand2human.z > 0.7) ? 1 : 0;
             // Checks if player is walking and isGrounded
             // Will allow head bob
