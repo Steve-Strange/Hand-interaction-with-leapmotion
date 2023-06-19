@@ -5,18 +5,19 @@ using UnityEngine;
 public class Hold : MonoBehaviour
 {
     private GameObject whiteBall;
-    private GameObject poseDetector;
+    private GameObject onPalm;
     private Vector3 forceDirection;
     private float force;
 
     void OnTriggerEnter(Collider other)     //接触时触发，无需调用
     {
         Debug.Log(Time.time + ":进入该触发器的对象是：" + other.gameObject.name);
+
         if(other.gameObject == whiteBall)
         {
-            forceDirection = poseDetector.GetComponent<leftPalmHandler>().direction.normalized;
-            force = poseDetector.GetComponent<leftPalmHandler>().distance;
-            whiteBall.GetComponent<Rigidbody>().AddForce(forceDirection * force);
+            forceDirection = onPalm.GetComponent<leftPalmHandler>().direction.normalized;
+            force = onPalm.GetComponent<leftPalmHandler>().distance * 3000;
+            whiteBall.GetComponent<Rigidbody>().AddForce(forceDirection * (force > 0 ? force : 0));
         }
     }
     void OnTriggerStay(Collider other)    //每帧调用一次OnTriggerStay()函数
@@ -32,8 +33,8 @@ public class Hold : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        whiteBall = GameObject.Find("Obj/Pool");
-        poseDetector = GameObject.Find("Pose Detector");
+        whiteBall = GameObject.Find("Obj/Balls/Ball_00");
+        onPalm = GameObject.Find("onPalm");
     }
 
     // Update is called once per frame

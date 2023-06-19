@@ -215,7 +215,7 @@ public class FirstPersonController : MonoBehaviour
         if(cameraCanMove)
         {
 
-            float rotationX = (rightHand2human.x < -0.18 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.18) ? 0.3f : 0;
+            float rotationX = (rightHand2human.x < -0.15 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.15) ? 0.3f : 0;
 
             yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class leftPalmHandler : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class leftPalmHandler : MonoBehaviour
     public void setPos()
     {
         startHand = rightHand_thumb.transform.position;
-        if(leftHandIndex_a.transform.position.x > 2.6 && leftHandIndex_a.transform.position.x < 7 && leftHandIndex_a.transform.position.z > 3.8 && leftHandIndex_a.transform.position.z < 9)
+        if (leftHandIndex_a.transform.position.x > 2.6 && leftHandIndex_a.transform.position.x < 7 && leftHandIndex_a.transform.position.z > 3.8 && leftHandIndex_a.transform.position.z < 9)
         {
             whiteBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             whiteBall.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
@@ -35,6 +36,8 @@ public class leftPalmHandler : MonoBehaviour
 
             flag = true;
             tempCameraPosition = PlayerCamera.transform.position;
+
+
             startWhiteBallPosition = whiteBall.transform.position;
 
             Vector3 alignHand = rightHand_thumb.transform.position;
@@ -55,13 +58,21 @@ public class leftPalmHandler : MonoBehaviour
             Vector3 alignHand = rightHand_thumb.transform.position;
             alignHand.y = startWhiteBallPosition.y;
             direction = startWhiteBallPosition - alignHand;
+            distance = Vector3.Dot((curHand - startHand), direction) / direction.magnitude;
+
+
             cue.transform.rotation = Quaternion.LookRotation(new Vector3(0, -1, 0), direction);
 
-            distance = Vector3.Dot((curHand - startHand), direction) / direction.magnitude;
+            
 
             cue.transform.position = startWhiteBallPosition - direction / (direction.magnitude * 2) + direction / (direction.magnitude * 2) * distance * 4;
 
             cue.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+
+            PlayerCamera.transform.position = startWhiteBallPosition - direction / (direction.magnitude * 2) * 2.5f + new Vector3(0, 0.3f, 0);
+            PlayerCamera.transform.LookAt(whiteBall.transform);
+
+
         }
     }
 
