@@ -215,14 +215,15 @@ public class FirstPersonController : MonoBehaviour
         if(cameraCanMove)
         {
 
-
-            float rotationX = (rightHand2human.x < -0.2 && leftHand2human.x < -0.25) ? -0.5f : (rightHand2human.x >0.25 && leftHand2human.x > 0.2) ? 0.5f : 0;
-
-            print(leftHand2human.x);
-            print(rightHand2human.x);
+            float rotationX = (rightHand2human.x < -0.18 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.18) ? 0.3f : 0;
 
             yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
 
+            float rotationY = (rightHand2human.y < -0.30 && leftHand2human.y < -0.30) ? 0.2f : (rightHand2human.y > 0.20 && leftHand2human.y > 0.20) ? -0.2f : 0;
+
+            pitch += mouseSensitivity * rotationY;
+
+/*
             if (!invertCamera)
             {
                 pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
@@ -232,6 +233,7 @@ public class FirstPersonController : MonoBehaviour
                 // Inverted Y
                 pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
             }
+*/
 
             // Clamp pitch between lookAngle
             pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
@@ -395,8 +397,8 @@ public class FirstPersonController : MonoBehaviour
             leftHand2human = m.MultiplyVector(leftHand2human);
             rightHand2human = m.MultiplyVector(rightHand2human);
 
-            targetVelocity.x = (leftHand2human.x < -0.35 && rightHand2human.x > -0.2 && rightHand2human.x < 0.35) ? -1 : (leftHand2human.x > -0.35 && leftHand2human.x < 0.2 && rightHand2human.x > 0.35) ? 1 : 0;
-            targetVelocity.z = (leftHand2human.z < 0.33 && rightHand2human.z < 0.33) ? -1 : (leftHand2human.z > 0.7 && rightHand2human.z > 0.7) ? 1 : 0;
+            targetVelocity.x = (leftHand2human.x < -0.41 && rightHand2human.x > -0.2 && rightHand2human.x < 0.41) ? -1 : (leftHand2human.x > -0.41 && leftHand2human.x < 0.2 && rightHand2human.x > 0.41) ? 1 : 0;
+            targetVelocity.z = (leftHand2human.z < 0.35 && rightHand2human.z < 0.35) ? -1 : (leftHand2human.z > 0.7 && rightHand2human.z > 0.7) ? 1 : 0;
             // Checks if player is walking and isGrounded
             // Will allow head bob
             if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
