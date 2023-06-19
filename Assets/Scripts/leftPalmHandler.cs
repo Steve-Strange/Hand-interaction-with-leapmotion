@@ -33,6 +33,7 @@ public class leftPalmHandler : MonoBehaviour
         if (leftHandIndex_a.transform.position.x > 3 && leftHandIndex_a.transform.position.x < 6.5 && leftHandIndex_a.transform.position.z > 3.5 && leftHandIndex_a.transform.position.z < 8.5)
         {
             cue.transform.position = startPosition + (GameObject.Find(rightHand).GetComponent<Transform>().position - startPosition) * 3;
+            GameObject.Find("Obj/Pool").GetComponent<Rigidbody>().velocity = 5 * GameObject.Find(rightHand).GetComponent<Rigidbody>().velocity;
             // cue.transform.position = startPosition +
             //    new Vector3((GameObject.Find(rightHand).GetComponent<Transform>().position.x - startPosition.x) * 1.5f, (GameObject.Find(rightHand).GetComponent<Transform>().position.y - startPosition.y) * 1.5f, (GameObject.Find(rightHand).GetComponent<Transform>().position.z - startPosition.z) * 3);
             //      Vector3 targetPosition = GameObject.Find(leftHand).GetComponent<Transform>().position - GameObject.Find(rightHand).GetComponent<Transform>().position;
