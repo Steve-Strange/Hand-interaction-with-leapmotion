@@ -22,7 +22,8 @@ public class leftPalmHandler : MonoBehaviour
     bool flag = false;
     Vector3 startHand;
     Vector3 curHand;
-    float distance;
+    public float distance;
+    public Vector3 direction;
     public void setPos()
     {
         startHand = rightHand_thumb.transform.position;
@@ -38,7 +39,7 @@ public class leftPalmHandler : MonoBehaviour
 
             Vector3 alignHand = rightHand_thumb.transform.position;
             alignHand.y = startWhiteBallPosition.y;
-            Vector3 direction = alignHand;
+            direction = alignHand;
             cue.transform.rotation = Quaternion.LookRotation(new Vector3(0, -1, 0), direction);
             cue.transform.position = startWhiteBallPosition - direction / (direction.magnitude * 2);
 
@@ -53,7 +54,7 @@ public class leftPalmHandler : MonoBehaviour
             curHand = rightHand_thumb.transform.position;
             Vector3 alignHand = rightHand_thumb.transform.position;
             alignHand.y = startWhiteBallPosition.y;
-            Vector3 direction = startWhiteBallPosition - alignHand;
+            direction = startWhiteBallPosition - alignHand;
             cue.transform.rotation = Quaternion.LookRotation(new Vector3(0, -1, 0), direction);
 
             distance = Vector3.Dot((curHand - startHand), direction) / direction.magnitude;

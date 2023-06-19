@@ -4,23 +4,20 @@ using UnityEngine;
 
 public class Hold : MonoBehaviour
 {
-    public GameObject prompt;
+    private GameObject whiteBall;
+    private GameObject poseDetector;
+    private Vector3 forceDirection;
+    private float force;
 
-    public void Show(GameObject prompt)
-    {
-        //用来将某个物体激活或是禁用（这里是prompt，也就是那个图标
-        //禁用时这个物体和其子物体都会禁用，包括上面的脚本，在这里很方便
-        prompt.SetActive(true);
-    }
-    public void Hide(GameObject prompt)
-    {
-        prompt.SetActive(false);
-    }
     void OnTriggerEnter(Collider other)     //接触时触发，无需调用
     {
         Debug.Log(Time.time + ":进入该触发器的对象是：" + other.gameObject.name);
-        Show(prompt);
-        prompt.GetComponent<MoveObject>().enabled = true;
+        if(other.gameObject == whiteBall)
+        {
+            forceDirection = poseDetector.GetComponent<leftPalmHandler>().direction.normalized;
+            force = poseDetector.GetComponent<leftPalmHandler>().distance;
+            whiteBall.GetComponent<Rigidbody>().AddForce(forceDirection * force);
+        }
     }
     void OnTriggerStay(Collider other)    //每帧调用一次OnTriggerStay()函数
     {
@@ -29,14 +26,14 @@ public class Hold : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         Debug.Log(Time.time + "离开触发器的对象是：" + other.gameObject.name);
-        Hide(prompt);
-        prompt.GetComponent<MoveObject>().enabled = false;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        Hide(prompt);
+        whiteBall = GameObject.Find("Obj/Pool");
+        poseDetector = GameObject.Find("Pose Detector");
     }
 
     // Update is called once per frame
