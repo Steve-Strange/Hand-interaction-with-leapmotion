@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Reset : MonoBehaviour
 {
+
+    public void ResetAll()
+    {
+        for (int i = 0; i <= 15; i++)
+        {
+            GameObject thisBall = GameObject.Find("Obj/Balls/Ball" + i);
+            thisBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            thisBall.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            thisBall.transform.position = GameObject.Find("Obj/Balls/Ball" + i + " (1)").transform.position;
+
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +32,6 @@ public class Reset : MonoBehaviour
                 GameObject.Find("Obj/Balls/Ball" + i).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
                 GameObject.Find("Obj/Balls/Ball" + i).GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
             }
-        }
-    }
-
-    void ResetAll()
-    {
-        for (int i = 0; i <= 15; i++)
-        {
-            GameObject.Find("Obj/Balls/Ball" + i).transform.position = GameObject.Find("Obj/Balls/ResetPoint" + i + " (1)").transform.position;
         }
     }
 }

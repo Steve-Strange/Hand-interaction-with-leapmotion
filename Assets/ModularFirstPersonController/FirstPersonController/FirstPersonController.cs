@@ -242,11 +242,9 @@ public class FirstPersonController : MonoBehaviour
             }
 
             //rotationX = (rightHand2human.x < -0.15 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.15) ? 0.3f : 0;
-
-            yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
-
             //rotationY = (rightHand2human.y < -0.30 && leftHand2human.y < -0.30) ? 0.2f : (rightHand2human.y > 0.20 && leftHand2human.y > 0.20) ? -0.2f : 0;
 
+            yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
             pitch += mouseSensitivity * rotationY;
 
 /*
