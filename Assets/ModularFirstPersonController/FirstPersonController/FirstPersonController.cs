@@ -8,9 +8,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Leap;
+using Leap.Unity;
+using Image = UnityEngine.UI.Image;
 
 #if UNITY_EDITOR
-    using UnityEditor;
+using UnityEditor;
     using System.Net;
 #endif
 
@@ -138,6 +141,10 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
+    Controller controller;
+    List<Hand> hands;
+    Frame frame;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -211,15 +218,34 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Camera
 
+
+        float rotationX = 0, rotationY = 0;
+
         // Control camera movement
         if(cameraCanMove)
         {
+            frame = controller.Frame();
+            hands = frame.Hands;
+            foreach(Hand hand in hands)
+            {
+                if(hand.IsLeft)
+                {
+                    print(hand.GrabStrength);
+                    if(hand.GrabStrength > 0.8f)
+                    {
+                        rotationX = -hand.PalmVelocity.x;
+                        rotationY = -hand.PalmVelocity.y;
+                        print("rotationX" + rotationX);
+                        print("rotationY" + rotationY);
+                    }
+                }
+            }
 
-            float rotationX = (rightHand2human.x < -0.15 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.15) ? 0.3f : 0;
+            //rotationX = (rightHand2human.x < -0.15 && leftHand2human.x < -0.25) ? -0.3f : (rightHand2human.x > 0.25 && leftHand2human.x > 0.15) ? 0.3f : 0;
 
             yaw = transform.localEulerAngles.y + rotationX * mouseSensitivity;
 
-            float rotationY = (rightHand2human.y < -0.30 && leftHand2human.y < -0.30) ? 0.2f : (rightHand2human.y > 0.20 && leftHand2human.y > 0.20) ? -0.2f : 0;
+            //rotationY = (rightHand2human.y < -0.30 && leftHand2human.y < -0.30) ? 0.2f : (rightHand2human.y > 0.20 && leftHand2human.y > 0.20) ? -0.2f : 0;
 
             pitch += mouseSensitivity * rotationY;
 
