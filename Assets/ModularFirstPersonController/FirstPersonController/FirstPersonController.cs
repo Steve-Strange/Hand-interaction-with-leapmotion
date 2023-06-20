@@ -141,7 +141,7 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
-    LeapProvider leapProvider;
+    public LeapProvider leapProvider;
     List<Hand> hands;
     Frame frame;
 
@@ -165,8 +165,8 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+        leapProvider = FindObjectOfType<LeapProvider>() as LeapProvider;
 
- 
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
@@ -220,13 +220,12 @@ public class FirstPersonController : MonoBehaviour
     {
         #region Camera
 
-
+        frame = leapProvider.CurrentFrame;
         float rotationX = 0, rotationY = 0;
 
         // Control camera movement
         if(cameraCanMove)
         {
-            frame = controller.Frame();
             hands = frame.Hands;
             foreach(Hand hand in hands)
             {
