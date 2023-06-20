@@ -12,6 +12,7 @@ public class leftPalmHandler : MonoBehaviour
     GameObject PlayerCamera;
     GameObject whiteBall;
     GameObject rightHand_thumb;
+    GameObject FirstPersonController;
     private string leftHand = "Service Provider (Desktop)/GhostHands/Generic Hand_Left/baseMeshHand_Left_GRP/Elbow/Wrist/index_meta/index_a";
     Vector3 tempCameraPosition;
     Vector3 startWhiteBallPosition;
@@ -22,18 +23,19 @@ public class leftPalmHandler : MonoBehaviour
     public Vector3 direction;
     public void setPos()
     {
-        startHand = rightHand_thumb.transform.position;
-        if (!flag)
-        {
-            flag = true;
-            tempCameraPosition = PlayerCamera.transform.position;
-        }
+        person.GetComponent<FirstPersonController>().enabled = false;
+        
         if (leftHandIndex_a.transform.position.x > 2.6 && leftHandIndex_a.transform.position.x < 7 && leftHandIndex_a.transform.position.z > 3.8 && leftHandIndex_a.transform.position.z < 9)
         {
+            startHand = rightHand_thumb.transform.position;
+            if (!flag)
+            {
+                flag = true;
+                tempCameraPosition = PlayerCamera.transform.position;
+            }
             whiteBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
             whiteBall.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
-            person.GetComponent<FirstPersonController>().enabled = false;
-            
+
             startWhiteBallPosition = whiteBall.transform.position;
 
             Vector3 alignHand = rightHand_thumb.transform.position;
@@ -41,7 +43,6 @@ public class leftPalmHandler : MonoBehaviour
             direction = alignHand;
             cue.transform.rotation = Quaternion.LookRotation(new Vector3(0, -1, 0), direction);
             cue.transform.position = startWhiteBallPosition - direction / (direction.magnitude * 2);
-
         }
     }
 
@@ -50,6 +51,7 @@ public class leftPalmHandler : MonoBehaviour
     {
         if (leftHandIndex_a.transform.position.x > 2.6 && leftHandIndex_a.transform.position.x < 7 && leftHandIndex_a.transform.position.z > 3.8 && leftHandIndex_a.transform.position.z < 9)
         {
+
             curHand = rightHand_thumb.transform.position;
             Vector3 alignHand = rightHand_thumb.transform.position;
             alignHand.y = startWhiteBallPosition.y;
@@ -68,13 +70,17 @@ public class leftPalmHandler : MonoBehaviour
 
     public void OffPos()
     {
-        if (flag)
+        person.GetComponent<FirstPersonController>().enabled = true;
+        if (leftHandIndex_a.transform.position.x > 2.6 && leftHandIndex_a.transform.position.x < 7 && leftHandIndex_a.transform.position.z > 3.8 && leftHandIndex_a.transform.position.z < 9)
         {
-            flag = false;
+            person.GetComponent<Rigidbody>().constraints = 0;
+            if (flag)
+            {
+                flag = false;
+                PlayerCamera.transform.position = tempCameraPosition;
+            }
             PlayerCamera.transform.position = tempCameraPosition;
         }
-        person.GetComponent<FirstPersonController>().enabled = true;
-        PlayerCamera.transform.position = tempCameraPosition;
     }
 
     void Start()
@@ -85,6 +91,7 @@ public class leftPalmHandler : MonoBehaviour
         PlayerCamera = GameObject.Find("FirstPersonController/Joint/PlayerCamera");
         whiteBall = GameObject.Find("Obj/Balls/Ball0");
         rightHand_thumb = GameObject.Find("Service Provider (Desktop)/GhostHands/Generic Hand_Right/baseMeshHand_Right_GRP/Elbow/Wrist/middle_meta/middle_a");
+        FirstPersonController = GameObject.Find("FirstPersonController");
     }
 
     // Update is called once per frame
