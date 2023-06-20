@@ -141,7 +141,7 @@ public class FirstPersonController : MonoBehaviour
 
     #endregion
 
-    Controller controller;
+    LeapProvider leapProvider;
     List<Hand> hands;
     Frame frame;
 
@@ -165,6 +165,8 @@ public class FirstPersonController : MonoBehaviour
 
     void Start()
     {
+
+ 
         if(lockCursor)
         {
             Cursor.lockState = CursorLockMode.Locked;
