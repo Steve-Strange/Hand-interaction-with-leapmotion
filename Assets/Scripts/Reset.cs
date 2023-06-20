@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class Reset : MonoBehaviour
 {
-    GameObject whiteBall;
-    GameObject resetPoint;
     // Start is called before the first frame update
     void Start()
     {
-        whiteBall = GameObject.Find("Obj/Balls/Ball_00");
-        resetPoint = GameObject.Find("resetPoint");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (whiteBall.transform.position.y < 0.1)
+        for(int i = 0; i <= 15; i++)
         {
-            whiteBall.transform.position = resetPoint.transform.position;
-            whiteBall.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-            whiteBall.GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            if (GameObject.Find("Obj/Balls/Ball" + i).transform.position.y < 0.1)
+            {
+                GameObject.Find("Obj/Balls/Ball" + i).transform.position = GameObject.Find("Obj/Balls/ResetPoint" + i).transform.position;
+                GameObject.Find("Obj/Balls/Ball" + i).GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+                GameObject.Find("Obj/Balls/Ball" + i).GetComponent<Rigidbody>().angularVelocity = new Vector3(0, 0, 0);
+            }
+        }
+    }
+
+    void ResetAll()
+    {
+        for (int i = 0; i <= 15; i++)
+        {
+            GameObject.Find("Obj/Balls/Ball" + i).transform.position = GameObject.Find("Obj/Balls/ResetPoint" + i + " (1)").transform.position;
         }
     }
 }

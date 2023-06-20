@@ -83,7 +83,7 @@ public class leftPalmHandler : MonoBehaviour
         cue = GameObject.Find("Obj/Pool");
         leftHandIndex_a = GameObject.Find(leftHand);
         PlayerCamera = GameObject.Find("FirstPersonController/Joint/PlayerCamera");
-        whiteBall = GameObject.Find("Obj/Balls/Ball_00");
+        whiteBall = GameObject.Find("Obj/Balls/Ball0");
         rightHand_thumb = GameObject.Find("Service Provider (Desktop)/GhostHands/Generic Hand_Right/baseMeshHand_Right_GRP/Elbow/Wrist/middle_meta/middle_a");
     }
 
