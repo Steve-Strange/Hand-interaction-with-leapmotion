@@ -1,0 +1,6 @@
+fileFormatVersion: 2
+guid: 233b91540c0754a64be0c0c30a8ff09f
+ShaderImporter:
+  defaultTextures:
+  - CloudSampler: {fileID: 2800000, guid: 3a2d8343e51f94937a46077294ccf1eb, type: 3}
+  userData: 

@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: c44f9e1d2b7494c2994e135c65ad3c47
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - CloudMaterial: {fileID: 2100000, guid: cb8895afd9d6a40bbb8488ebbb8d40fd, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
